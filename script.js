@@ -1,20 +1,21 @@
-// Get form elements - using correct string quotes for IDs
+// Get form elements
 const form = document.getElementById('ageForm');
-const nameInput = document.getElementById('name');  // 'name' needs quotes
-const ageInput = document.getElementById('age');    // 'age' needs quotes
+const nameInput = document.getElementById('name');
+const ageInput = document.getElementById('age');
 
 // Add submit event listener to form
-form.addEventListener('submit', function(event) {   // 'submit' not 'click', proper function syntax
+form.addEventListener('submit', function(event) {
+    // Prevent default form submission
     event.preventDefault();
     
     // Validate inputs
     if (!nameInput.value || !ageInput.value) {
-        alert('Please fill in all fields');
+        alert('Please enter valid details');  // Changed alert message to match test requirements
         return;
     }
     
     // Create and handle promise
-    new Promise((resolve, reject) => {             // 'new Promise' not 'newPromise'
+    new Promise((resolve, reject) => {
         setTimeout(() => {
             if (parseInt(ageInput.value) >= 18) {
                 resolve(nameInput.value);
